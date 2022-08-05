@@ -85,7 +85,7 @@ Not all headers appearing in a response are categorized as response headers by t
 The idea in our script is to provide some sort of basis when visiting the website. Below you can find a pre-made header that will work with most sites when your looking for something in the HTML.
  
 ```python
-wikipedia_headers = {
+Wikipedia_headers = {
     "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
     "X-Tool": "vt-ui-main",
     "X-VT-Anti-Abuse-Header": "MTA3OTM2NjUwMjctWkc5dWRDQmlaU0JsZG1scy0xNjMxMTE3NzQyLjY1",
@@ -101,16 +101,16 @@ Now that we have our headers all we need is a "target". For our purposes our obj
 What we want to do first is specify the URL we are visiting first like this.
 
 ```python
-My_URL = https://en.wikipedia.org/wiki/Python_(programming_language)
+My_URL = "https://en.wikipedia.org/wiki/Python_(programming_language)"
 ```
 
 Next indicate what headers will be used when visiting the site.
 ```python
-my_response = requests.get(My_URL, headers = wikipedia_headers)
+My_response = requests.get(My_URL, headers = Wikipedia_headers)
 ```
 Now save the HTML the script will be capturing to a variable.
 ```python
-HTML_data = json.loads(my_response.content)
+HTML_data = json.loads(My_response.content)
 ```
 From here when you print the data out it should look something like this:
 
