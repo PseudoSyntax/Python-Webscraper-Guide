@@ -1,6 +1,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-![](https://komarev.com/ghpvc/?username=PseudoSyntax&label=Views&style=flat-square&color=blueviolet)
+
 
 &nbsp;
 &nbsp;
@@ -85,7 +85,7 @@ Not all headers appearing in a response are categorized as response headers by t
 The idea in our script is to provide some sort of basis when visiting the website. Below you can find a pre-made header that will work with most sites when your looking for something in the HTML.
  
 ```python
-headers = {
+wikipedia_headers = {
     "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
     "X-Tool": "vt-ui-main",
     "X-VT-Anti-Abuse-Header": "MTA3OTM2NjUwMjctWkc5dWRDQmlaU0JsZG1scy0xNjMxMTE3NzQyLjY1",
@@ -98,11 +98,21 @@ Now that we have our headers all we need is a "target". For our purposes our obj
 ![image](https://user-images.githubusercontent.com/43308680/183219357-484bc5e9-ab83-4fd3-b7ca-519b161364f0.png)
 
 
+What we want to do first is specify the URL we are visiting first like this.
 
+```python
+My_URL = https://en.wikipedia.org/wiki/Python_(programming_language)
+```
 
-
-
-
+Next indicate what headers will be used when visiting the site.
+```python
+my_response = requests.get(My_URL, headers = wikipedia_headers)
+```
+Now save the HTML the script will be capturing to a variable.
+```python
+HTML_data = json.loads(my_response.content)
+```
+From here when you print the data out it should look something like this:
 
 
 
