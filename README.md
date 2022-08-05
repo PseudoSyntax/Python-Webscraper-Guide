@@ -85,8 +85,6 @@ Not all headers appearing in a response are categorized as response headers by t
 The idea in our script is to provide some sort of basis when visiting the website. Below you can find a pre-made header that will work with most sites when your looking for something in the HTML.
  
 ```python
-
-url = "https://www.virustotal.com/ui/domain/bpwhamburgorchardpark.org"
 headers = {
     "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
     "X-Tool": "vt-ui-main",
@@ -94,6 +92,8 @@ headers = {
     "Accept-Ianguage": "en-US,en;q=0.9,es;q=0.8",
 }
 ```
+
+Now that we have our headers all we need is a "target". For our purposes our objective is to scrape the latest version of Python as according to the Python Wikipedia page. 
 
 
 
