@@ -95,6 +95,7 @@ headers = {
 
 Now that we have our headers all we need is a "target". For our purposes our objective is to scrape the latest version of Python as according to the Python Wikipedia page. 
 
+![image](https://user-images.githubusercontent.com/43308680/183219357-484bc5e9-ab83-4fd3-b7ca-519b161364f0.png)
 
 
 
