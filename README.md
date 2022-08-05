@@ -76,6 +76,24 @@ This simple tutorial is reliant on websites that do not require authentication b
 For this tutorial the three websites that will be used are the [wikipedia](https://en.wikipedia.org/wiki/Python_(programming_language)) python page, [virus total](https://www.virustotal.com/gui/home/upload) and [mxtoolbox](https://mxtoolbox.com/).
 
 
+## Scraping a website that Does Not Require JavaScript Function Call
+
+Response headers at least according to mozilla is an HTTP header that can be used in an HTTP response and that doesn't relate to the content of the message. Response headers, like Age, Location or Server are used to give a more detailed context of the response.
+
+Not all headers appearing in a response are categorized as response headers by the specification. For example, the Content-Type header is a representation header indicating the original type of data in the body of the response message (prior to the encoding in the Content-Encoding representation header being applied). However, "conversationally" all headers are usually referred to as response headers in a response message.
+
+The idea in our script is to provide some sort of basis when visiting the website. Below you can find a pre-made header that will work with most sites when your looking for something in the HTML.
+ 
+```python
+
+url = "https://www.virustotal.com/ui/domain/bpwhamburgorchardpark.org"
+headers = {
+    "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
+    "X-Tool": "vt-ui-main",
+    "X-VT-Anti-Abuse-Header": "MTA3OTM2NjUwMjctWkc5dWRDQmlaU0JsZG1scy0xNjMxMTE3NzQyLjY1",
+    "Accept-Ianguage": "en-US,en;q=0.9,es;q=0.8",
+}
+```
 
 
 
