@@ -117,7 +117,13 @@ From here when you print the data out it should look something like this:
 
 
 
+import requests
 
+url = requests.get("https://en.wikipedia.org/wiki/Python_(programming_language)")
+htmltext = url.text
+print(str(htmltext))
+hy = re.findall('start (.+?)updated',str(htmltext))
+print(hy[0])
 
 
 
