@@ -106,6 +106,17 @@ Recall that using re will instantly send your values into a list so to print the
 ```python
 print(Py_Version_Val[0])
 ```
+ The code when put together should look like the lines below and should print the desired output 3.10.6
+```python
+import urllib
+import requests
+import re
+
+url = requests.get("https://en.wikipedia.org/wiki/Python_(programming_language)")
+htmltext = str(url.text)
+Py_Version_Val = re.findall('style="margin:0px;">(.+)<sup id="c', htmltext)
+print(Py_Version_Val[0])
+```
 
 
 
