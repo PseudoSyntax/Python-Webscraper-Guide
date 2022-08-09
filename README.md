@@ -172,8 +172,14 @@ Now that the response file has been copied we should look into what data we want
 
 Once we have the JSON data we must indicate to python from what cell we will be calling data from. The way the AJAX cells navigate is by the path of the parent node all the way to the child node you are searching. In this example below.
 
-### INSERT PIC
+![image](https://user-images.githubusercontent.com/43308680/183767675-aa6e6e22-da85-42dc-a05d-2358ce47ae06.png)
 
+  
+We would want to call starting from the parent node "data" each proceeding node that includes the node of the value we want. If we are trying to aquire the value of "confidence" we would call it in this order. It should print out the value of 1. 
+```
+variable1 = response_var['data']['attributes']['sandbox_verdicts']['Zenbox']['confidence']
+```
+  
 
 Using the method just mentioned above we can aquire the virus total saftey indicators like so:
 ```python
@@ -181,10 +187,40 @@ malicious = HTML_data['data']['attributes']['last_analysis_stats']['malicious']
 undetected = HTML_data['data']['attributes']['last_analysis_stats']['undetected']
 harmless = HTML_data['data']['attributes']['last_analysis_stats']['harmless']
   
-f'Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}'
+print(f'Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}')
 ```
 
 From here when you print the data out it should look something like this:
+  
+![image](https://user-images.githubusercontent.com/43308680/183768219-22ddcd0e-7b3d-4347-93be-31e50d78aa57.png)
+
+The entire code block will look like this:
+```python
+import requests
+import re
+import json
+
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
+    "X-Tool": "vt-ui-main",
+    "X-VT-Anti-Abuse-Header": "MTA3OTM2NjUwMjctWkc5dWRDQmlaU0JsZG1scy0xNjMxMTE3NzQyLjY1",
+    "Accept-Ianguage": "en-US,en;q=0.9,es;q=0.8",
+} 
+
+URL_domain = "4a468603fdcb7a2eb5770705898cf9ef37aade532a7964642ecd705a74794b79"
+
+response = requests.get('https://www.virustotal.com/ui/files/' + URL_domain, headers=headers)
+data1 = json.loads(response.content)    
+malicious = data1['data']['attributes']['last_analysis_stats']['malicious']
+undetected = data1['data']['attributes']['last_analysis_stats']['undetected']
+harmless = data1['data']['attributes']['last_analysis_stats']['harmless']    
+print(f'\n Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}\n')
+
+ 
+
+```
+
 
 
 
