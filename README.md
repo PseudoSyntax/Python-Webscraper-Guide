@@ -168,26 +168,21 @@ HTML_data = json.loads(response.content)
 
 Now that the response file has been copied we should look into what data we want to aquire. Return to the web page and on the network log where we found the JSON data, copy the response and paste it into a seperate text file on your desktop.
 
+![image](https://user-images.githubusercontent.com/43308680/183745286-cde578a3-97c4-4c38-af7e-6d8fbee7d43b.png)
+
+Once we have the JSON data we must indicate to python from what cell we will be calling data from. The way the AJAX cells navigate is by the path of the parent node all the way to the child node you are searching. In this example below.
+
+### INSERT PIC
 
 
-
-
-
-
-
-
-
+Using the method just mentioned above we can aquire the virus total saftey indicators like so:
+```python
+malicious = HTML_data['data']['attributes']['last_analysis_stats']['malicious']
+undetected = HTML_data['data']['attributes']['last_analysis_stats']['undetected']
+harmless = HTML_data['data']['attributes']['last_analysis_stats']['harmless']
   
-  ```
-    malicious = data['data']['attributes']['last_analysis_stats']['malicious']
-    undetected = data['data']['attributes']['last_analysis_stats']['undetected']
-    harmless = data['data']['attributes']['last_analysis_stats']['harmless']
-
-    label_domain = tk.Label(root, text=f'Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}',font=('helvetica', 10, 'bold'))
-    canvas1.create_window(200, 230, window=label_domain)
-  ```
-
-
+f'Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}'
+```
 
 From here when you print the data out it should look something like this:
 
