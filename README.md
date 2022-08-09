@@ -96,13 +96,16 @@ The terminal should print the HTML of the Wikipedia page like below.
 
 Now in order to obtain just the value of the python version we need to somehow retrive it from the HTML text dump. To do this we will be using ReGex to parse through the data. To formulate a regex for python it is higly reccomended to use [Pythex](https://pythex.org/). For our regex we will be searching for the strings around the value that we would like to aquire. Understand that there are many ways to use and write a regex to fufuil our purposes.
 
+If we take a look at the strings around our value we can identify a unqiue sequence that can help us aquire the value we desire
+![image](https://user-images.githubusercontent.com/43308680/183718308-0dc201a1-8a16-432e-b3ab-c0d578d022d5.png)
+Using the strings around the value, we can tell Python using the regex (.+) to say to match a group with any characters of 1 or more instances between the strings *style="margin:0px;">* and *<sup id="c* .
 ```python
-Py_Version_Val = re.findall('(.+?)', htmltext)
+Py_Version_Val = re.findall('style="margin:0px;">(.+?)<sup id="c', htmltext)
 ```
-
-
-#hy = re.findall('start (.+?)updated',str(htmltext))
-#print(hy[0])
+Recall that using re will instantly send your values into a list so to print the value call index 0 since there should only be one instance of what we want on the webpage.
+```python
+print(Py_Version_Val[0])
+```
 
 
 
