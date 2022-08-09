@@ -95,7 +95,7 @@ The terminal should print the HTML of the Wikipedia page like below.
 ![image](https://user-images.githubusercontent.com/43308680/183713561-0e295cfa-3e65-425d-8951-caed949b6acd.png)
 
 Now in order to obtain just the value of the python version we need to somehow retrive it from the HTML text dump. To do this we will be using ReGex to parse through the data. To formulate a regex for python it is higly reccomended to use [Pythex](https://pythex.org/). For our regex we will be searching for the strings around the value that we would like to aquire. Understand that there are many ways to use and write a regex to fufuil our purposes.
-
+   
 If we take a look at the strings around our value we can identify a unqiue sequence that can help us aquire the value we desire
 ![image](https://user-images.githubusercontent.com/43308680/183718308-0dc201a1-8a16-432e-b3ab-c0d578d022d5.png)
 Using the strings around the value, we can tell Python using the regex (.+) to say to match a group with any characters of 1 or more instances between the strings *style="margin:0px;">* and *<sup id="c* .
@@ -140,31 +140,20 @@ My_header = {
     "Accept-Ianguage": "en-US,en;q=0.9,es;q=0.8",
 }
 ```
+  
+  
 
 In order to find the AJAX cell data for the webpage we must open the inspect element web tools and search for the response file that conatins what we need. After opening inspect element refresh the page or type CTRL-r to capture the network logs. Once inside type CTRL-f and search for the hash we are looking up(in our example 4a468603fdcb7a2eb5770705898cf9ef37aade532a7964642ecd705a74794b79). When searching the results we want to look for a response file with lots of JSON data. Once we know which file we are looking for copy the path indicated in the picture by the blue box. 
+  
 ![image](https://user-images.githubusercontent.com/43308680/183736430-d209c99f-e3a5-4562-97c7-0af43fe9cb65.png)
 
 
 
 
-What we want to do first is specify the URL we are visiting first like this.
+Create a variable to hold the path value taken from the previous image.
 ```python
 My_URL = "https://www.virustotal.com/ui/files/4a468603fdcb7a2eb5770705898cf9ef37aade532a7964642ecd705a74794b79"
 ```
-  
-  
-```
-    response = requests.get(My_URL, headers = My_header)
-    HTML_data = json.loads(response.content)
-
-    malicious = data['data']['attributes']['last_analysis_stats']['malicious']
-    undetected = data['data']['attributes']['last_analysis_stats']['undetected']
-    harmless = data['data']['attributes']['last_analysis_stats']['harmless']
-
-    label_domain = tk.Label(root, text=f'Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}',font=('helvetica', 10, 'bold'))
-    canvas1.create_window(200, 230, window=label_domain)
- ``` 
-  
   
 Next indicate what headers will be used when visiting the site.
 ```python
@@ -177,7 +166,7 @@ We can now set a variable to store our JSON response file text. The function cal
 HTML_data = json.loads(response.content)
 ```
 
-Now that the response file has been copied we should look into what data we want to aquire.
+Now that the response file has been copied we should look into what data we want to aquire. Return to the web page and on the network log where we found the JSON data, copy the response and paste it into a seperate text file on your desktop.
 
 
 
@@ -188,7 +177,15 @@ Now that the response file has been copied we should look into what data we want
 
 
 
+  
+  ```
+    malicious = data['data']['attributes']['last_analysis_stats']['malicious']
+    undetected = data['data']['attributes']['last_analysis_stats']['undetected']
+    harmless = data['data']['attributes']['last_analysis_stats']['harmless']
 
+    label_domain = tk.Label(root, text=f'Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}',font=('helvetica', 10, 'bold'))
+    canvas1.create_window(200, 230, window=label_domain)
+  ```
 
 
 
