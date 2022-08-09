@@ -77,6 +77,37 @@ For this tutorial the three websites that will be used are the [wikipedia](https
 
 
 ## Scraping a website that Does Not Require JavaScript Function Call
+The website we will be webscraping from will be the Python Wikipedia page. For our purposes our objective is to scrape the latest version of Python as according to the Python Wikipedia page. 
+
+![image](https://user-images.githubusercontent.com/43308680/183219357-484bc5e9-ab83-4fd3-b7ca-519b161364f0.png)
+
+After importing the nessesary Python libraries we will start off by defining a variable that will store our html response with the webpage URL as our argument for the .get() call.
+```python
+url = requests.get("https://en.wikipedia.org/wiki/Python_(programming_language)")
+```
+Next decode the response into a string then print the response.
+```python
+htmltext = str(url.text)
+print(htmltext)
+```
+The terminal should print the HTML of the Wikipedia page like below.
+
+![image](https://user-images.githubusercontent.com/43308680/183713561-0e295cfa-3e65-425d-8951-caed949b6acd.png)
+
+Now in order to obtain just the value of the python version we need to somehow retrive it from the HTML text dump. To do this we will be using ReGex to parse through the data. To formulate a regex for python it is higly reccomended to use [Pythex](https://pythex.org/). For our regex we will be searching for the strings around the value that we would like to aquire. Understand that there are many ways to use and write a regex to fufuil our purposes.
+
+```python
+Py_Version_Val = re.findall('(.+?)', htmltext)
+```
+
+
+#hy = re.findall('start (.+?)updated',str(htmltext))
+#print(hy[0])
+
+
+
+
+## Scraping a website with headers
 
 Response headers at least according to mozilla is an HTTP header that can be used in an HTTP response and that doesn't relate to the content of the message. Response headers, like Age, Location or Server are used to give a more detailed context of the response.
 
