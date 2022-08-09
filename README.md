@@ -216,7 +216,7 @@ malicious = HTML_data['data']['attributes']['last_analysis_stats']['malicious']
 undetected = HTML_data['data']['attributes']['last_analysis_stats']['undetected']
 harmless = HTML_data['data']['attributes']['last_analysis_stats']['harmless']
   
-print(f'Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}')
+print(f'Malicous Activity: {malicious}\n Undetected Activity: {undetected}\n Harmless Activity: {harmless}')
 ```
 
 ## Scraping a Website that Requires JavaScript Input
