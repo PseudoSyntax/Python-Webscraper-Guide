@@ -20,10 +20,10 @@
   </a>
   
   
-  <h3 align="center">Mr.ChickenCombo's Guide to Kernel Setup</h3>
+  <h3 align="center">Mr.ChickenCombo's Guide to Python WebScraping</h3>
 
   <p align="center">
-    An great guide towards making your own personal Kernel on Linux!
+    An great guide towards making your own personal Python Webscraper!
     <br />
     <a href="https://github.com/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions/wiki"><strong>Explore the docs »</strong></a>
     <br />
@@ -122,6 +122,9 @@ print(Py_Version_Val[0])
 
 
 ## Scraping a website with headers
+Now that we have our headers all we need is a "target". For our purposes our objective is to scrape the the virus total analysis of the Wanna Cry sha256 hash and to print the results to the terminal. In order to do this we will be creating a response header to scrape the AJAX cell data from virus total.
+  
+![image](https://user-images.githubusercontent.com/43308680/183725863-6fad4783-6620-4d15-bc6c-ab05156349b5.png)
 
 Response headers at least according to mozilla is an HTTP header that can be used in an HTTP response and that doesn't relate to the content of the message. Response headers, like Age, Location or Server are used to give a more detailed context of the response.
 
@@ -130,7 +133,7 @@ Not all headers appearing in a response are categorized as response headers by t
 The idea in our script is to provide some sort of basis when visiting the website. Below you can find a pre-made header that will work with most sites when your looking for something in the HTML.
  
 ```python
-Wikipedia_headers = {
+My_header = {
     "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
     "X-Tool": "vt-ui-main",
     "X-VT-Anti-Abuse-Header": "MTA3OTM2NjUwMjctWkc5dWRDQmlaU0JsZG1scy0xNjMxMTE3NzQyLjY1",
@@ -138,37 +141,53 @@ Wikipedia_headers = {
 }
 ```
 
-Now that we have our headers all we need is a "target". For our purposes our objective is to scrape the latest version of Python as according to the Python Wikipedia page. 
-
-![image](https://user-images.githubusercontent.com/43308680/183219357-484bc5e9-ab83-4fd3-b7ca-519b161364f0.png)
-
-
 What we want to do first is specify the URL we are visiting first like this.
 
 ```python
-My_URL = "https://en.wikipedia.org/wiki/Python_(programming_language)"
+My_URL = "https://www.virustotal.com/ui/files/4a468603fdcb7a2eb5770705898cf9ef37aade532a7964642ecd705a74794b79"
 ```
+  
+  
+```
+    response = requests.get(My_URL, headers = My_header)
+    HTML_data = json.loads(response.content)
 
+    malicious = data['data']['attributes']['last_analysis_stats']['malicious']
+    undetected = data['data']['attributes']['last_analysis_stats']['undetected']
+    harmless = data['data']['attributes']['last_analysis_stats']['harmless']
+
+    label_domain = tk.Label(root, text=f'Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}',font=('helvetica', 10, 'bold'))
+    canvas1.create_window(200, 230, window=label_domain)
+ ``` 
+  
+  
 Next indicate what headers will be used when visiting the site.
 ```python
-My_response = requests.get(My_URL, headers = Wikipedia_headers)
+response = requests.get(My_URL, headers = My_header)
 ```
-Now save the HTML the script will be capturing to a variable.
+  
+We can now set a variable to store our JSON response file text. The function call json.loads() method can be used to parse a valid JSON string and convert it into a Python Dictionary. It is mainly used for deserializing native string, byte, or byte array which consists of JSON data into Python Dictionary.
+  
 ```python
-HTML_data = json.loads(My_response.content)
+HTML_data = json.loads(response.content)
 ```
+
+Now that the response file has been copied we should look into what data we want to aquire.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 From here when you print the data out it should look something like this:
-
-
-
-
-import requests
-
-url = requests.get("https://en.wikipedia.org/wiki/Python_(programming_language)")
-htmltext = url.text
-print(str(htmltext))
-hy = re.findall('start (.+?)updated',str(htmltext))
-print(hy[0])
 
 
 
