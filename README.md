@@ -141,8 +141,13 @@ My_header = {
 }
 ```
 
-What we want to do first is specify the URL we are visiting first like this.
+In order to find the AJAX cell data for the webpage we must open the inspect element web tools and search for the response file that conatins what we need. After opening inspect element refresh the page or type CTRL-r to capture the network logs. Once inside type CTRL-f and search for the hash we are looking up(in our example 4a468603fdcb7a2eb5770705898cf9ef37aade532a7964642ecd705a74794b79). When searching the results we want to look for a response file with lots of JSON data. Once we know which file we are looking for copy the path indicated in the picture by the blue box. 
+![image](https://user-images.githubusercontent.com/43308680/183736430-d209c99f-e3a5-4562-97c7-0af43fe9cb65.png)
 
+
+
+
+What we want to do first is specify the URL we are visiting first like this.
 ```python
 My_URL = "https://www.virustotal.com/ui/files/4a468603fdcb7a2eb5770705898cf9ef37aade532a7964642ecd705a74794b79"
 ```
