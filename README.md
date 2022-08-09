@@ -20,7 +20,7 @@
   </a>
   
   
-  <h3 align="center">Mr.ChickenCombo's Guide to Python WebScraping</h3>
+  <h3 align="center">Mr.ChickenCombo's Guide to Python Web Scraping</h3>
 
   <p align="center">
     An great guide towards making your own personal Python Webscraper!
@@ -50,22 +50,22 @@ This tutorial will teach the basics of regex webscraping as well as calling JSON
     <li>
       <a href="#Dependencies-Needed">Dependencies Needed</a>
     </li>
-    <li><a href="#After-you-Install-Ubuntu">After you Install Ubuntu</a></li>
-    <li><a href="#Recommend-Optional-Steps-to-Fix-Screen">Recommend Optional Steps to Fix Screen</a></li>
-    <li><a href="#Terminal-Stage">Terminal Stage</a></li>
-    <li><a href="#Making-a-Syscall-Successfully">Making a Syscall Successfully</a></li>
+    <li><a href="#Choosing-a-Website-to-Scrape">Choosing a Website to Scrape</a></li>
+    <li><a href="#Scraping-Website-HTML">Scraping Website HTML </a></li>
+    <li><a href="#Scraping-JSON-Values-from-a-Website">Scraping JSON Values from a Website</a></li>
+    <li><a href="#Scraping a Website that Requires JavaScript Input">Scraping a Website that Requires JavaScript Input</a></li>
+    <li><a href="#Resources">Resources</a></li>
     <li><a href="#Summary">Summary</a></li>
   </ol>
 </details>
 
-## Dependencies Needed
+## Dependencies
 Python 3.XX is needed for this tutorial, as well as the following imports
 
 ```
 import urllib
 import json
 import requests
-import time
 import re
 ```
 
@@ -76,7 +76,7 @@ This simple tutorial is reliant on websites that do not require authentication b
 For this tutorial the three websites that will be used are the [wikipedia](https://en.wikipedia.org/wiki/Python_(programming_language)) python page, [virus total](https://www.virustotal.com/gui/home/upload) and [mxtoolbox](https://mxtoolbox.com/).
 
 
-## Scraping a website that Does Not Require JavaScript Function Call
+## Scraping Website HTML 
 The website we will be webscraping from will be the Python Wikipedia page. For our purposes our objective is to scrape the latest version of Python as according to the Python Wikipedia page. 
 
 ![image](https://user-images.githubusercontent.com/43308680/183219357-484bc5e9-ab83-4fd3-b7ca-519b161364f0.png)
@@ -121,7 +121,8 @@ print(Py_Version_Val[0])
 
 
 
-## Scraping a website with headers
+## Scraping JSON Values from a Website
+  
 Now that we have our headers all we need is a "target". For our purposes our objective is to scrape the the virus total analysis of the Wanna Cry sha256 hash and to print the results to the terminal. In order to do this we will be creating a response header to scrape the AJAX cell data from virus total.
   
 ![image](https://user-images.githubusercontent.com/43308680/183725863-6fad4783-6620-4d15-bc6c-ab05156349b5.png)
@@ -201,27 +202,24 @@ import re
 import json
 
 
-headers = {
+My_header = {
     "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
     "X-Tool": "vt-ui-main",
     "X-VT-Anti-Abuse-Header": "MTA3OTM2NjUwMjctWkc5dWRDQmlaU0JsZG1scy0xNjMxMTE3NzQyLjY1",
     "Accept-Ianguage": "en-US,en;q=0.9,es;q=0.8",
-} 
-
-URL_domain = "4a468603fdcb7a2eb5770705898cf9ef37aade532a7964642ecd705a74794b79"
-
-response = requests.get('https://www.virustotal.com/ui/files/' + URL_domain, headers=headers)
-data1 = json.loads(response.content)    
-malicious = data1['data']['attributes']['last_analysis_stats']['malicious']
-undetected = data1['data']['attributes']['last_analysis_stats']['undetected']
-harmless = data1['data']['attributes']['last_analysis_stats']['harmless']    
-print(f'\n Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}\n')
-
- 
-
+}
+My_URL = "https://www.virustotal.com/ui/files/4a468603fdcb7a2eb5770705898cf9ef37aade532a7964642ecd705a74794b79"
+response = requests.get(My_URL, headers = My_header)
+HTML_data = json.loads(response.content)
+  
+malicious = HTML_data['data']['attributes']['last_analysis_stats']['malicious']
+undetected = HTML_data['data']['attributes']['last_analysis_stats']['undetected']
+harmless = HTML_data['data']['attributes']['last_analysis_stats']['harmless']
+  
+print(f'Malicous Domain: {malicious}\n Undetected Domain: {undetected}\n Harmless Domain: {harmless}')
 ```
 
-
+## Scraping a Website that Requires JavaScript Input
 
 
 
