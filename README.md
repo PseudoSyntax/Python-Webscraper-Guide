@@ -311,7 +311,8 @@ IP_Addr = re.findall('ptr:(.+?)',', data)[0])
                                                           
 This should print our value of **172.253.63.27**
   
-![image](https://user-images.githubusercontent.com/43308680/184024251-4fa8c8f3-6454-4a9a-882c-0b488cad8350.png)
+![image](https://user-images.githubusercontent.com/43308680/184024595-254d8518-facd-4adf-b943-5c7aa5e82fa2.png)
+
 
                                                           
 The final code will look something like this: 
