@@ -273,10 +273,10 @@ Just like the previous examples on this github page convert your response data i
   
   ```python
 # Convert data to dict
-data1 = response.json()
+HTML_content = response.json()
 
 # Convert dict to string
-data = json.dumps(data1)
+data = json.dumps(HTML_content)
   ```
 
 
