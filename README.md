@@ -5,11 +5,11 @@
 &nbsp;
 &nbsp;
 
-[stars-shield]: https://img.shields.io/github/stars/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions.svg?style=flat-square
+[stars-shield]: https://img.shields.io/github/stars/PseudoSyntax/Python-Webscraper-Guide.svg?style=flat-square
 [stars-url]: https://github.com/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions/stargazers
 <!--style=flat-square   and  style=for-the-badge-->
-[issues-shield]: https://img.shields.io/github/issues/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions.svg?style=flat-square
-[issues-url]: https://github.com/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions/issues
+[issues-shield]: https://img.shields.io/github/issues/PseudoSyntax/Python-Webscraper-Guide.svg?style=flat-square
+[issues-url]: https://github.com/PseudoSyntax/Python-Webscraper-Guide/issues
 
 
 <!-- PROJECT LOGO -->
@@ -25,12 +25,12 @@
   <p align="center">
     An great guide towards making your own personal Python Webscraper!
     <br />
-    <a href="https://github.com/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions/wiki"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/PseudoSyntax/Python-Webscraper-Guide/wiki"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions">Home</a>
+    <br /> 
+    <a href="https://github.com/PseudoSyntax/Python-Webscraper-Guide">Home</a>
     ·
-    <a href="https://github.com/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions/issues">Report an Issue</a>
+    <a href="https://github.com/PseudoSyntax/Python-Webscraper-Guide/issues">Report an Issue</a>
     ·
     <a href="https://github.com/PseudoSyntax/Python-Webscraper-Guide/wiki">Webscraper Wiki</a>
   </p>
