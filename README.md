@@ -304,9 +304,58 @@ javascript:doLookup('blacklist:172.253.63.27','results'
 ```
 
                                                           
-Using the strings around the value once again, we can tell Python using the regex (.+) to say to match a group with any characters of 1 or more instances between the strings *ptr:* and *,*
+Using the strings around the value once again, we can tell Python using the regex (.+) to say to match a group with any characters of 1 or more instances between the strings *ptr:* & *,* and then select zero or one occurences.
 ```python
-IP_Addr = re.findall('ptr:(.+),', data)[0])                                           
+IP_Addr = re.findall('ptr:(.+?)',', data)[0])                                           
 ```
+                                                          
+This should print our value of **172.253.63.27**
+                                                          
+The final code will look something like this: 
+
+```python
+import re
+import json
+import requests
+
+headers = {
+    'authority': 'mxtoolbox.com',
+    'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="99", "Google Chrome";v="99"',
+    'sec-ch-ua-mobile': '?0',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36',
+    'content-type': 'application/json; charset=utf-8',
+    'accept': 'application/json, text/javascript, */*; q=0.01',
+    'tempauthorization': '27eea1cd-e644-4b7b-bebe-38010f55dab3',
+    'x-requested-with': 'XMLHttpRequest',
+    'sec-ch-ua-platform': '"Linux"',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://mxtoolbox.com/SuperTool.aspx?action=mx%3agmail.com&run=toolpage',
+    'accept-language': 'en-US,en;q=0.9',
+    'cookie': 'HttpOnly; HttpOnly; MxVisitorUID=6b4f683e-4c47-4ea8-b8fa-501f0148dc49; _mxt_s=anon; _mx_vtc=VWO-Blocked=true; ASP.NET_SessionId=5df3gpcr0vlfeavfurironcy; _mxt_u={"UserId":"00000000-0000-0000-0000-000000000000","UserName":null,"FirstName":null,"IsAdmin":false,"IsMasquerade":false,"IsPaidUser":false,"IsLoggedIn":false,"MxVisitorUid":"6b4f683e-4c47-4ea8-b8fa-501f0148dc49","TempAuthKey":"27eea1cd-e644-4b7b-bebe-38010f55dab3","IsPastDue":false,"BouncedEmailOn":null,"NumDomainHealthMonitors":0,"NumDisabledMonitors":0,"XID":null,"AGID":"00000000-0000-0000-0000-000000000000","Membership":{"MemberType":"Anonymous"},"CognitoSub":"00000000-0000-0000-0000-000000000000","HasBetaAccess":false,"IsOnTrial":false}; ki_r=; ki_t=1654875023356%3B1660144233236%3B1660160719456%3B19%3B61',
+}
+
+params = {
+    'command': 'mx',
+    'argument': 'gmail.com',
+    'resultIndex': '1',
+    'disableRhsbl': 'true',
+    'format': '2',
+}
+
+response = requests.get('https://mxtoolbox.com/api/v1/Lookup', params=params, headers=headers)
+
+# Convert data to dict
+HTML_content = response.json()
+
+# Convert dict to string
+data = json.dumps(HTML_content)
+
+IP_Addr = re.findall("ptr:(.+?)',", data)[0]                                        
+
+
+print(str(IP_Addr))                                                 
+```                                                          
                                                           
                                                           
