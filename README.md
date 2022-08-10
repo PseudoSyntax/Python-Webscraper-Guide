@@ -54,6 +54,7 @@ This tutorial will teach the basics of regex webscraping as well as calling JSON
     <li><a href="#Scraping-Website-HTML">Scraping Website HTML </a></li>
     <li><a href="#Scraping-JSON-Values-from-a-Website">Scraping JSON Values from a Website</a></li>
     <li><a href="#Scraping-a-Website-that-Requires-JavaScript-Input">Scraping a Website that Requires JavaScript Input</a></li>
+    <li><a href="#Scraping-Websites-that-Require-Authentication-or-Login">Scraping Websites that Require Authentication or Login</a></li>
     <li><a href="#Resources">Resources</a></li>
     <li><a href="#Summary">Summary</a></li>
   </ol>
@@ -361,7 +362,7 @@ IP_Addr = re.findall("ptr:(.+?)',", data)[0]
 
 print(str(IP_Addr))                                                 
 ```                                                          
-## Webscraping Websites that Require Authentication or Login  
+## Scraping Websites that Require Authentication or Login
   **TBA**
                                            
 ## Resources
