@@ -226,7 +226,11 @@ For our purposes our objective will be to print the first IP address on the MX r
 
 ![image](https://user-images.githubusercontent.com/43308680/183990918-0cc1f96a-d412-4fa5-95d1-36e33a690d13.png)
 
+First we need to acquire the network response that has our data. A simple CTRL-F in the network tab with our value should find what we need. Once we find the response file, copy it as cURL and go to [this website](https://curlconverter.com/) and paste your clipboard contents. It should give you python code to copy like the picture below. 
 
+![image](https://user-images.githubusercontent.com/43308680/184007479-6cad36e9-cf2c-4e22-b840-8b5c3735d1ea.png)
+
+![image](https://user-images.githubusercontent.com/43308680/184007520-31b818b9-ce76-49d7-9ced-d1e3e260b222.png)
 
 
 
