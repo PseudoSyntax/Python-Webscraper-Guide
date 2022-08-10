@@ -233,7 +233,39 @@ First we need to acquire the network response that has our data. A simple CTRL-F
 ![image](https://user-images.githubusercontent.com/43308680/184007520-31b818b9-ce76-49d7-9ced-d1e3e260b222.png)
 
 
+Paste the code from the curl converter website as your new bowser header contents.
+  
+```python
+import requests
 
+headers = {
+    'authority': 'mxtoolbox.com',
+    'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="99", "Google Chrome";v="99"',
+    'sec-ch-ua-mobile': '?0',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36',
+    'content-type': 'application/json; charset=utf-8',
+    'accept': 'application/json, text/javascript, */*; q=0.01',
+    'tempauthorization': '27eea1cd-e644-4b7b-bebe-38010f55dab3',
+    'x-requested-with': 'XMLHttpRequest',
+    'sec-ch-ua-platform': '"Linux"',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://mxtoolbox.com/SuperTool.aspx?action=mx%3agmail.com&run=toolpage',
+    'accept-language': 'en-US,en;q=0.9',
+    'cookie': 'HttpOnly; HttpOnly; MxVisitorUID=6b4f683e-4c47-4ea8-b8fa-501f0148dc49; _mxt_s=anon; _mx_vtc=VWO-Blocked=true; ASP.NET_SessionId=5df3gpcr0vlfeavfurironcy; _mxt_u={"UserId":"00000000-0000-0000-0000-000000000000","UserName":null,"FirstName":null,"IsAdmin":false,"IsMasquerade":false,"IsPaidUser":false,"IsLoggedIn":false,"MxVisitorUid":"6b4f683e-4c47-4ea8-b8fa-501f0148dc49","TempAuthKey":"27eea1cd-e644-4b7b-bebe-38010f55dab3","IsPastDue":false,"BouncedEmailOn":null,"NumDomainHealthMonitors":0,"NumDisabledMonitors":0,"XID":null,"AGID":"00000000-0000-0000-0000-000000000000","Membership":{"MemberType":"Anonymous"},"CognitoSub":"00000000-0000-0000-0000-000000000000","HasBetaAccess":false,"IsOnTrial":false}; ki_r=; ki_t=1654875023356%3B1660144233236%3B1660160719456%3B19%3B61',
+}
+
+params = {
+    'command': 'mx',
+    'argument': 'gmail.com',
+    'resultIndex': '1',
+    'disableRhsbl': 'true',
+    'format': '2',
+}
+
+response = requests.get('https://mxtoolbox.com/api/v1/Lookup', params=params, headers=headers)
+```
 
 
 
