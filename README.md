@@ -32,7 +32,7 @@
     ·
     <a href="https://github.com/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions/issues">Report an Issue</a>
     ·
-    <a href="https://github.com/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions/wiki">Ubuntu Error Wiki</a>
+    <a href="https://github.com/PseudoSyntax/Python-Webscraper-Guide/wiki">Webscraper Wiki</a>
   </p>
 </p>
 
