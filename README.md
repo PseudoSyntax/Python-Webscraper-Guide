@@ -53,7 +53,7 @@ This tutorial will teach the basics of regex webscraping as well as calling JSON
     <li><a href="#Choosing-a-Website-to-Scrape">Choosing a Website to Scrape</a></li>
     <li><a href="#Scraping-Website-HTML">Scraping Website HTML </a></li>
     <li><a href="#Scraping-JSON-Values-from-a-Website">Scraping JSON Values from a Website</a></li>
-    <li><a href="#Scraping a Website that Requires JavaScript Input">Scraping a Website that Requires JavaScript Input</a></li>
+    <li><a href="#Scraping-a-Website-that-Requires-JavaScript-Input">Scraping a Website that Requires JavaScript Input</a></li>
     <li><a href="#Resources">Resources</a></li>
     <li><a href="#Summary">Summary</a></li>
   </ol>
@@ -222,7 +222,10 @@ print(f'Malicous Activity: {malicious}\n Undetected Activity: {undetected}\n Har
 
 Certain websites have dta you want to scrape, but don't appear on the html when you search for it. One such website is [MXToolBox](https://mxtoolbox.com/SuperTool.aspx). If we were to [search for mx records on gmail.com](https://mxtoolbox.com/SuperTool.aspx?action=mx%3agmail.com&run=toolpage) we would not get any of the mx record values in the static html. To work around this we need to view the network response file that loads this data on to the static html page.
   
-  
+For our purposes our objective will be to print the first IP address on the MX record list.
+
+![image](https://user-images.githubusercontent.com/43308680/183990918-0cc1f96a-d412-4fa5-95d1-36e33a690d13.png)
+
 
 
 
