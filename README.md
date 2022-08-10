@@ -267,13 +267,46 @@ params = {
 response = requests.get('https://mxtoolbox.com/api/v1/Lookup', params=params, headers=headers)
 ```
 
+  
+Just like the previous examples on this github page convert your response data into a dictionary item and then convert the dictionary to a string.   
+  
+  
+  ```python
+# Convert data to dict
+data1 = response.json()
+
+# Convert dict to string
+data = json.dumps(data1)
+  ```
 
 
+If you copy the response and search for the value we are searching for (*172.253.63.27*) you will get three results that look like this:
 
+  
+  
+This has a unquie pattern we can look for each time.
+```html
+href='#' onmousedown=\"javascript:doLookup('ptr:172.253.63.27','results');
+```
+  
+                                                          
+                                                          
+This one is surrounded by common tags, so our regex might pickup other results into our list that we don't want                
+```html                                                          
+\">172.253.63.27</a><div class= 
+```
+  
+  
+We aren't looking for the blacklist result  
+                                                          
+```html  
+javascript:doLookup('blacklist:172.253.63.27','results'                                                          
+```
 
-
-
-
-
-
-
+                                                          
+Using the strings around the value once again, we can tell Python using the regex (.+) to say to match a group with any characters of 1 or more instances between the strings *ptr:* and *,*
+```python
+IP_Addr = re.findall('ptr:(.+),', data)[0])                                           
+```
+                                                          
+                                                          
