@@ -198,7 +198,6 @@ From here when you print the data out it should look something like this:
 The entire code block will look like this:
 ```python
 import requests
-import re
 import json
 
 
@@ -221,7 +220,9 @@ print(f'Malicous Activity: {malicious}\n Undetected Activity: {undetected}\n Har
 
 ## Scraping a Website that Requires JavaScript Input
 
-
+Certain websites have dta you want to scrape, but don't appear on the html when you search for it. One such website is [MXToolBox](https://mxtoolbox.com/SuperTool.aspx). If we were to search the domain for 
+  
+  https://mxtoolbox.com/SuperTool.aspx?action=mx%3agmail.com&run=toolpage
 
 
 
