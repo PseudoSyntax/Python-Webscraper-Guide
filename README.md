@@ -361,5 +361,13 @@ IP_Addr = re.findall("ptr:(.+?)',", data)[0]
 
 print(str(IP_Addr))                                                 
 ```                                                          
-                                                          
-                                                          
+## Webscraping Websites that Require Authentication or Login  
+  **TBA**
+                                           
+## Resources
+
+  
+  
+## Summary:
+
+Summer 2022 Intern knowledge resource 
