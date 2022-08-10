@@ -220,9 +220,9 @@ print(f'Malicous Activity: {malicious}\n Undetected Activity: {undetected}\n Har
 
 ## Scraping a Website that Requires JavaScript Input
 
-Certain websites have dta you want to scrape, but don't appear on the html when you search for it. One such website is [MXToolBox](https://mxtoolbox.com/SuperTool.aspx). If we were to search the domain for 
+Certain websites have dta you want to scrape, but don't appear on the html when you search for it. One such website is [MXToolBox](https://mxtoolbox.com/SuperTool.aspx). If we were to [search for mx records on gmail.com](https://mxtoolbox.com/SuperTool.aspx?action=mx%3agmail.com&run=toolpage) we would not get any of the mx record values in the static html. To work around this we need to view the network response file that loads this data on to the static html page.
   
-  https://mxtoolbox.com/SuperTool.aspx?action=mx%3agmail.com&run=toolpage
+  
 
 
 
