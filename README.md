@@ -6,7 +6,7 @@
 &nbsp;
 
 [stars-shield]: https://img.shields.io/github/stars/PseudoSyntax/Python-Webscraper-Guide.svg?style=flat-square
-[stars-url]: https://github.com/PseudoSyntax/Ubuntu-20.04-Kernel-Setup-Instructions/stargazers
+[stars-url]: https://github.com/PseudoSyntax/Python-Webscraper-Guide/stargazers
 <!--style=flat-square   and  style=for-the-badge-->
 [issues-shield]: https://img.shields.io/github/issues/PseudoSyntax/Python-Webscraper-Guide.svg?style=flat-square
 [issues-url]: https://github.com/PseudoSyntax/Python-Webscraper-Guide/issues
@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="https://sketchywebsite.net/">
-     <img width="72" alt="Chicken1" width="80" height="80" src="https://user-images.githubusercontent.com/43308680/132917546-e46cdfeb-0f53-4868-af4c-9c3a0742a332.PNG">
+     <img width="72" alt="Chicken1" width="120" height="80" src="https://user-images.githubusercontent.com/43308680/132917546-e46cdfeb-0f53-4868-af4c-9c3a0742a332.PNG">
   </a>
   
   
@@ -306,12 +306,12 @@ javascript:doLookup('blacklist:172.253.63.27','results'
                                                           
 Using the strings around the value once again, we can tell Python using the regex (.+) to say to match a group with any characters of 1 or more instances between the strings *ptr:* & *,* and then select zero or one occurences.
 ```python
-IP_Addr = re.findall('ptr:(.+?)',', data)[0])                                           
+IP_Addr = re.findall('ptr:(.+?)',', data)[0]                                          
 ```
                                                           
 This should print our value of **172.253.63.27**
   
-![image](https://user-images.githubusercontent.com/43308680/184024595-254d8518-facd-4adf-b943-5c7aa5e82fa2.png)
+![image](https://user-images.githubusercontent.com/43308680/184024943-ac1594ca-b29f-466d-8374-07c3a82ba107.png)
 
 
                                                           
